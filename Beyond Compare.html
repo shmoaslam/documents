@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://www.scootersoftware.com/v4help/index.html?command_line_reference.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Beyond Compare</title>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script type="text/javascript" src="./Beyond Compare_files/jquery.js.download"></script>
+  <script type="text/javascript" src="./Beyond Compare_files/helpman_settings.js.download"></script>
+  <script type="text/javascript" src="./Beyond Compare_files/helpman_navigation.js.download"></script>
+  <script type="text/javascript" src="./Beyond Compare_files/hmcontextids.js.download"></script>
+
+  <link type="text/css" href="./Beyond Compare_files/default.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./Beyond Compare_files/ss.css">
+
+  <style type="text/css">
+    html,body { margin:0;padding:0;height:100%;overflow:hidden;
+    }
+    html {
+      overflow-y: scroll;
+    }
+
+    #container {
+      height: 100%;
+    }
+
+    #mainbody {
+      height: 100%;
+    }
+
+    #hmnavbox {
+      display: inline-flex;
+      height: 100%;
+      float: left;
+      background-color: #F7F7F7;
+      background-image: url("../images/sidebar_metalcap.jpg"), url("../images/sidebar_metalbase.jpg"), url(../images/sidebar_metalrepeat.jpg);
+      background-repeat: no-repeat, no-repeat, repeat-y;
+      background-position: initial, left bottom, initial;
+      padding: 4px 8px 8px 4px;  /* BC: make room for the inner rounded border */
+      width: 220px;
+    }
+
+    #hmnavboxinner {
+      border-radius: 5px;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #hmcontentbox {
+      display: inline-flex;
+      height: 100%;
+      background-color: #F7F7F7;
+      padding: 4px 8px 8px 4px;
+      width: 722px;
+    }
+
+    iframe {
+      width:100%;
+      height:100%;
+      border:none;
+    }
+
+  </style>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      //BC when the window loads or resizes, center the splitter bar exactly under medaillon
+      $(window).bind("resize", function() {
+        var h = window.innerHeight - parseInt($("#header").css('height'))
+        $("#hmnavbox").css('height', h+"px");
+        $("#hmcontentbox").css('height', h+"px");
+      });
+      $(window).trigger("resize");
+
+      if (!hmSupportsAbspos()) {
+        $(window).bind("resize", function() {
+          hmNoAbsposResize($("#hmheadbox"), true, false);
+          hmNoAbsposResize($("#hmnavbox"), false, true);
+          hmNoAbsposResize($("#hmcontentbox"), true, true);
+        });
+        $(window).trigger("resize");
+      }
+    });
+  </script>
+
+</head>
+<body>
+<div id="container">  <!--BC style-->
+
+<div id="header">  <!--BC style-->
+<img class="medallion" id="medallion" usemap="#clickspot" src="./Beyond Compare_files/head_medallion.png" alt="Scooter Medallion">
+<map id="clickspot" name="clickspot">
+     <area shape="circle" coords="91,57,40" href="http://www.scootersoftware.com/index.php" alt="Home">
+</map>
+<img class="medallion-grille" src="./Beyond Compare_files/head_grille.png" alt="">
+
+
+
+    <ul id="nav">
+    <li><a href="http://www.scootersoftware.com/index.php">Home</a></li><li class="gap"><a href="http://www.scootersoftware.com/support.php"></a></li><li><a href="http://www.scootersoftware.com/features.php">Features</a></li><li><a href="http://www.scootersoftware.com/download.php">Download</a></li><li><a href="http://www.scootersoftware.com/shop.php">Purchase</a></li><li class="selected"><a href="http://www.scootersoftware.com/support.php">Support</a></li></ul>
+
+</div><!-- end header -->
+
+<div id="mainbody">
+  <div id="hmnavbox" style="height: 825px;">
+    <div id="hmnavboxinner">
+      <iframe name="hmnavigation" id="hmnavigation" src="./Beyond Compare_files/hmcontent.html" seamless="seamless" title="Navigation Pane" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <div id="hmcontentbox" style="height: 825px;">
+    <script type="text/javascript">
+      var defaulttopic="welcome.html";
+      var query = window.location.search.substring(1), hash = window.location.hash, xssTest = /&#39;|&#x27;|&#34;|&#x22;|&quot;|&#61;|&#x3D;|%27|%22|%3d|:|&#58;|&#x3a;|=|%3a|3a;|58;|\/|'|"/i, cntxRX = /contextid=\d*/, cntxMatch = cntxRX.exec(query), cntxSrc = "";
+      if (query != "") {
+        if (typeof(hmGetContextId) != "undefined") {
+          if (cntxMatch != null) {
+            cntxSrc = hmGetContextId(cntxMatch[0]);
+          };
+          if (cntxSrc != "") {
+            defaulttopic = cntxSrc;
+          } else {
+              if (!xssTest.test(query) && !xssTest.test(hash))
+                 defaulttopic = query + hash;
+          }
+        }
+      }
+      document.write('<iframe name="hmcontent" id="hmcontent" src="'+defaulttopic+'" seamless="seamless" title="Content Page" frameborder="0"></iframe>');
+    </script><iframe name="hmcontent" id="hmcontent" src="./Beyond Compare_files/command_line_reference.html" seamless="seamless" title="Content Page" frameborder="0"></iframe>
+    <noscript>
+      &lt;iframe name="hmcontent" id="hmcontent" src="welcome.html" seamless="seamless" title="Content Page" frameborder="0"&gt;&lt;/iframe&gt;
+    </noscript>
+  </div>
+</div>
+</div>   <!--BC container-->
+
+
+
+</body></html>
